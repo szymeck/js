@@ -28,7 +28,27 @@ return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
       close: 24,
     },
   },
+  orderDelivery: function({starterIndex,mainIndex,time,adress}){
+    console.log(`Order reveived! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${adress} at ${time}`);
+  }
 };
+
+restaurant.orderDelivery ({
+  time:'22:30',
+  adress:'siedl 21',
+  mainIndex:2,
+  starterIndex:2,
+})
+
+const {name,openingHours,categories}= restaurant;
+console.log(name,openingHours,categories);
+
+
+const {name: restaurantName,openingHours:hours,categories:tags}=restaurant;
+console.log(restaurantName);
+
+const {mainMenu:menu=[],starterMenu:starters=[]}=restaurant;
+console.log(menu,starters);
 
 console.log(restaurant.order(2,0));
 let [starter,mainDish] = restaurant.order(2,0);
@@ -47,3 +67,13 @@ console.log(x,y,z);
 
 const [first,,,second]= restaurant.categories;
 console.log(first,second);
+
+// const nested = [2,4,[5,6]];
+// const [i, ,j]=nested;
+// console.log(i,j);
+
+// const nested = [2,4,[5,6]];
+// const[i,,[j,k]]=nested;
+// console.log(i,j,k);
+
+// const [p,q,r]=[8,9];
