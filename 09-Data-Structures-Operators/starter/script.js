@@ -34,8 +34,45 @@ return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
 
   orderPasta: function(a,b,c){
     console.log(`here is your order of pasta witch ${a}, ${b}, ${c}`);
+  },
+  orderPizza: function(mainIngredient,...otherIngredients){
+    
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+    
   }
+  
 };
+
+const rest1 = {
+  name: "Capri",
+  numGuests:0,
+}
+const rest2 = {
+  name: "La pizza",
+  owner:'Szym',
+}
+
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+
+// rest1.numGuests ||=10;
+// rest2.numGuests ||=10;
+rest1.numGuests ??=10;
+rest2.numGuests ??=10;
+
+rest2.owner &&= `<anon>`;
+rest1.owner &&= `<anon>`;
+// rest2.owner = rest2.owner && `<anon>`;
+// rest1.owner = rest1.owner && `<anon>`;
+
+// rest1.owner ||='szym';
+
+console.log(rest1);
+console.log(rest2);
+
+console.log(rest1.name);
+
 
 
 // const arr = [1,2,...[3,4]];
@@ -48,6 +85,40 @@ console.log(a,b,otherFood);
 
 const {sat,...weekDays}=restaurant.openingHours;
 console.log(weekDays);
+
+console.log(3 || 'jonas');
+console.log(null || 3);
+console.log(null || undefined|| 3);
+console.log(null || 'jonas'|| 3);
+
+restaurant.orderPizza('spinach','ham','tomat','olive');
+
+console.log(3 && 'jonas' && null && 'lol');
+
+if(restaurant.orderPizza){
+  restaurant.orderPizza('spinach','ham')
+};
+
+restaurant.order && restaurant.order('spinach','ham');
+
+// restaurant.numGuests = 0;
+// const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// console.log(guests1);
+
+// const guests2 = restaurant.numGuests || 23;
+// console.log(guests2);
+
+restaurant.numGuests=0;
+const guests = restaurant.numGuests || 23;
+console.log(guests);
+
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
+
+restaurant.orderPizza('ham','2xham','tomatsos','olive','kebab');
+
+
+
 
 // const ingredients = [prompt(`Lets make pasta! Ingredient 1`),prompt(`Ingredient 2`),prompt(`Ingredient 3`)];
 // console.log(ingredients);
