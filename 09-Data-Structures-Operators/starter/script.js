@@ -5,6 +5,10 @@ const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
 // Data needed for first part of the section
+const weekD = ['mon','tue','wed','thu','fri','sat','sun'];
+
+
+
 const restaurant = {
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
@@ -15,15 +19,15 @@ const restaurant = {
 return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
   },
   openingHours: {
-    thu: {
+    [weekD[3]]: {
       open: 12,
       close: 22,
     },
-    fri: {
+    [weekD[4]]: {
       open: 11,
       close: 23,
     },
-    sat: {
+    [weekD[5]]: {
       open: 0, // Open 24 hours
       close: 24,
     },
@@ -44,14 +48,65 @@ return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
   
 };
 
-const rest1 = {
-  name: "Capri",
-  numGuests:0,
+const properties = Object.keys(restaurant.openingHours);
+console.log(properties);
+
+let openS =`Restaurant is open for ${properties.length} days:`;
+for (const day of properties) {
+openS += `${day}`;
+  
 }
-const rest2 = {
-  name: "La pizza",
-  owner:'Szym',
+
+console.log(openS);
+
+const values = Object.values(restaurant.openingHours);
+console.log(values);
+
+const entries = Object.entries(restaurant.openingHours);
+console.log(entries);
+
+for (const {open,close} of values){
+  console.log(`${open}  ${close}`);
+};
+
+for (const [day,{open,close}] of entries){
+
+  console.log(`Restaurant on ${day} is opened at ${open} and closed at ${close}`);
 }
+
+// console.log(restaurant.openingHours.mon);
+// if (restaurant.openingHours && restaurant.openingHours.thu) {
+//   console.log(restaurant.openingHours.mon?.open);
+// }
+// console.log(restaurant.openingHours.thu?.open);
+// // console.log(restaurant.openingHours.mon.open);
+
+// const days = ['mon','tue','wed','thu','fri','sat','sun'];
+
+// for ( const day of days){
+//   const open = restaurant.openingHours[day]?.open ?? 'closed';
+//   console.log(`${day} restaurant is open at ${open}`);
+// }
+
+// for ( const day of days) {
+//   const closed = restaurant.openingHours[day]?.close ?? 'no info';
+//   console.log(`${day} restaurant is closed at ${closed}`);
+// }
+
+
+// console.log(restaurant.order?.(0,1) ?? 'method dont exist');
+// console.log(restaurant.orderRisotto?.(0,1) ?? 'method dont exist');
+
+// const {name:newName}=restaurant;
+// console.log(newName);
+// const rest1 = {
+//   name: "Capri",
+//   numGuests:0,
+// }
+// const rest2 = {
+//   name: "La pizza",
+//   owner:'Szym',
+// }
 
 // rest1.numGuests = rest1.numGuests || 10;
 // rest2.numGuests = rest2.numGuests || 10;
@@ -83,7 +138,7 @@ console.log(rest1.name);
 const [a,b,...otherFood]=[...restaurant.mainMenu,...restaurant.starterMenu];
 console.log(a,b,otherFood);
 
-const {sat,...weekDays}=restaurant.openingHours;
+const {...weekDays}=restaurant.openingHours;
 console.log(weekDays);
 
 console.log(3 || 'jonas');
@@ -189,3 +244,9 @@ restaurant.orderPizza('ham','2xham','tomatsos','olive','kebab');
 // console.log(i,j,k);
 
 // const [p,q,r]=[8,9];
+
+// const menu = [...restaurant.starterMenu,...restaurant.mainMenu];
+
+// for (const item of menu) console.log(item);
+// console.log(...menu.entries());
+// for (const [i,el] of menu.entries()) console.log(`${i+1}:${el}`);
