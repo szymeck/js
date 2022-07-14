@@ -47,32 +47,100 @@ return [this.starterMenu[starterIndex],this.mainMenu[mainIndex]];
   }
   
 };
+// Maps iteration
+const question = new Map([
+  ['question','what is the best programming language?'],
+  [1,'c'],
+  [2,'java'],
+  [3,'javascript'],
+  ['correct',3],
+  [true,'correct!'],
+  [false,'try again']
+]);
+console.log(question);
 
-const properties = Object.keys(restaurant.openingHours);
-console.log(properties);
+// Convert object to map
+const hoursMap = new Map(Object.entries(restaurant.openingHours));
+console.log(hoursMap); 
 
-let openS =`Restaurant is open for ${properties.length} days:`;
-for (const day of properties) {
-openS += `${day}`;
+// Quiz map
+// console.log(question.get('question'));
+// for(const [key,value] of question){
+//   if(typeof key === 'number') console.log(`Answer ${key}: ${value}`);
+// };
+// const answer = Number(prompt('your answer'));
+// console.log(answer);
+// console.log(question.get(answer === question.get('correct')|| answer===false ));
+
+
+// Convert map to array
+console.log(question);
+console.log(...question);
+const question2=[...question];
+console.log(question2);
+
+
+// Maps
+const rest = new Map();
+rest.set('categiories',['italian','pizzeria','organic']).set('name','classico italiano').set(1,'firenze').set(2,'lisbon');
+console.log(rest);
+rest.set(true,'We are open').set(false,'We are closed').set('open',11).set('closed',23);
+console.log(rest.get(1));
+console.log(rest.get(true));
+const restNam = 'classico italiano';
+const time = 21;
+console.log(rest.get(time > rest.get('open') && time < rest.get('closed')));
+console.log(rest.get(restNam===rest.get(2)&& restNam!==rest.get(1)));
+console.log(rest.has('categiories'));
+
+// Sets
+
+// const orderSet = new Set(['piz','piz','past','past','risot']);
+// console.log(orderSet);
+
+// console.log(new Set('jonas'));
+
+// console.log(orderSet.size);
+
+// orderSet.add('garl');
+// console.log(orderSet);
+
+// for(const order of orderSet){
+//   console.log(order);
+// }
+
+// const staff = ['weit','chef','weit','chef','menag'];
+// const staffUnique = [...new Set(staff)];
+// staffUnique.push('boss');
+// console.log(staffUnique);
+// console.log(staffUnique.length);
+// console.log(new Set('szymek sobierajski').size);
+
+// const properties = Object.keys(restaurant.openingHours);
+// console.log(properties);
+
+// let openS =`Restaurant is open for ${properties.length} days:`;
+// for (const day of properties) {
+// openS += `${day}`;
   
-}
+// }
 
-console.log(openS);
+// console.log(openS);
 
-const values = Object.values(restaurant.openingHours);
-console.log(values);
+// const values = Object.values(restaurant.openingHours);
+// console.log(values);
 
-const entries = Object.entries(restaurant.openingHours);
-console.log(entries);
+// const entries = Object.entries(restaurant.openingHours);
+// console.log(entries);
 
-for (const {open,close} of values){
-  console.log(`${open}  ${close}`);
-};
+// for (const {open,close} of values){
+//   console.log(`${open}  ${close}`);
+// };
 
-for (const [day,{open,close}] of entries){
+// for (const [day,{open,close}] of entries){
 
-  console.log(`Restaurant on ${day} is opened at ${open} and closed at ${close}`);
-}
+//   console.log(`Restaurant on ${day} is opened at ${open} and closed at ${close}`);
+// }
 
 // console.log(restaurant.openingHours.mon);
 // if (restaurant.openingHours && restaurant.openingHours.thu) {
