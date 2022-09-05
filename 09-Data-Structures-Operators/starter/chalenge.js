@@ -129,11 +129,11 @@ const myScript = function () {
   console.log(areaSplit);
   areaSplit.indexOf('_');
 
-  for (const n of areaSplit) {
+  for (const [i,n] of areaSplit.entries()) {
     const [first,second] = n.trim().split('_');
     
     const outp = `${first}${second.replace(second[0],second[0].toUpperCase())}`;
-    console.log(outp.padEnd(20));
+    console.log(`${outp.padEnd(20)}${'^'.repeat(i+1)}`);
     
 
     
