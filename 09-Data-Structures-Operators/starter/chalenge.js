@@ -124,26 +124,47 @@ const text = document.querySelector('textarea');
 
 const btn = document.querySelector('button');
 const myScript = function () {
-  const areaText = text.value.toLocaleLowerCase();
+  const areaText = text.value.toLowerCase();
   const areaSplit = areaText.split('\n');
-
+  console.log(areaSplit);
   areaSplit.indexOf('_');
-  const areaSplitWords = [];
-  for (const n of areaSplit) {
-    //   areaSplit.indexOf('_');
 
-    // n.replace(' ', '');
-    // n.replace(
-    //   n[n.indexOf('_')],
-    //   n[n.indexOf('_') + 1].toUpperCase()
-    // );
+  for (const [i,n] of areaSplit.entries()) {
+    const [first,second] = n.trim().split('_');
+    
+    const outp = `${first}${second.replace(second[0],second[0].toUpperCase())}`;
+    console.log(`${outp.padEnd(20)}${'✔'.repeat(i+1)}`);
+    
 
-    n.split('_');
+    
 
-    console.log(n);
+    // areaSplitWords.push(n.split('_'));
+    // areaSplitWords.push(n.replace(n[1][0],n[1][0].toUpperCase()));
+    // log
+    
+    
+    // console.log(n.replace(n[n.indexOf('_')],n[n.indexOf('_') + 1].toUpperCase()));
+  // let nSplit=n.split('_');
+  // console.log(nSplit[1][0]);
+  
+  // let nSplitupper = nSplit.replace(nSplit[1][0],nSplit[1][0].toUpperCase());
+  // console.log(nSplitupper);
+  // console.log(nSplit.length);
+  // console.log(nSplit.replace(nSplit[1][0],nSplit[1][0].toUpperCase()));
+  
+  // for ( nSplit of areaSplit){
+  //   console.log(nSplit);
+  //   let nSplitupper = nSplit.replace(nSplit[1][0],nSplit[1][0].toUpperCase());
+  // console.log(nSplitupper);
+  // }
+  // console.log(upper.push(nSplit.replace(nSplit[1][0],nSplit[1][0].toUpperCase())));
+    // console.log(n.split('_'));
+    // console.log(n[1][1]);
+    // console.log(n.length);  
     // console.log(n.replace(n.indexOf('_'), n.indexOf('_' + 1)));
     // console.log(n.replace(n.indexOf('_'), n.indexOf('_' + 1)).toUpperCase());
   }
+  
 };
 btn.addEventListener('click', myScript);
 

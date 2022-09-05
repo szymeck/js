@@ -30,7 +30,7 @@ console.log('szymi'.padEnd(20, 'xd'));
 
 const maskCreditCard = function (number) {
   const str = number + '';
-  const last = str.slice(-4);
+  const last = str.slice(16);
   return last.padStart(str.length, '*');
 };
 console.log(maskCreditCard(872364287346));
@@ -79,9 +79,11 @@ console.log(trimmedEmail);
 const gbPrice = '277,90&';
 const usPrice = gbPrice.replace('&', '$').replace(',', '.');
 console.log(usPrice);
+console.log(usPrice.replace('$','X'));
+
 
 const annonc = 'All passengers to door 23. Boarding door 23.';
-console.log(annonc.replaceAll('door', 'gate'));
+console.log(annonc.replaceAll('door', 'll'));
 
 const plane2 = 'Airbus A320neo';
 console.log(plane2.includes('Air'));
