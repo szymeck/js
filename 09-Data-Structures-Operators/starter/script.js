@@ -7,10 +7,38 @@ const flights =
 // Data needed for first part of the section
 const weekD = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
+const [firstName, lastName] = 'szymon sobierajski'.split(' ');
+console.log(lastName);
 
+const fullName = ["Mr's", firstName, lastName].join(' ');
+console.log(fullName);
 
+const capit = function (name) {
+  const names = name.split(' ');
+  const nameUpper = [];
+  for (const n of names) {
+    nameUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(nameUpper.join(' '));
+};
 
+capit('ann mat lol xd ham lol');
 
+const message = 'siema siema lul';
+console.log(message.padStart(30, '1 '));
+console.log('szymi'.padEnd(20, 'xd'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last = str.slice(16);
+  return last.padStart(str.length, '*');
+};
+console.log(maskCreditCard(872364287346));
+
+const listPlanes = function (n) {
+  console.log(`there are ${n} planes i line. ${'✈️'.repeat(n)}`);
+};
+listPlanes(12);
 
 const airline = 'TAP Air Portugal';
 const plane = 'A320';
@@ -20,26 +48,67 @@ console.log(airline.length);
 console.log(airline.indexOf('A'));
 console.log(airline.lastIndexOf('A'));
 console.log(airline.indexOf('air'));
-console.log(airline.slice(airline.lastIndexOf('A'),airline.lastIndexOf('r')));
-console.log(airline.slice(4,7));
-console.log(airline.slice(0,airline.indexOf(" ")));
-console.log(airline.slice(airline.lastIndexOf(' ')-1));
+console.log(airline.slice(airline.lastIndexOf('A'), airline.lastIndexOf('r')));
+console.log(airline.slice(4, 7));
+console.log(airline.slice(0, airline.indexOf(' ')));
+console.log(airline.slice(airline.lastIndexOf(' ') - 1));
 
-const checkMiddleSeat = function(seat){
-
+const checkMiddleSeat = function (seat) {
   const s = seat.slice(-1);
-  if (s==='B' || s==='E'){
+  if (s === 'B' || s === 'E') {
     console.log('you are unlucky');
+  } else {
+    console.log('happy');
   }
-else{
-  console.log('happy');
-}
-}
+};
 checkMiddleSeat('11B');
 checkMiddleSeat('11C');
 
+const passenger = 'jonAs';
+const passengerLowerCase = passenger.toLowerCase();
+console.log(passengerLowerCase);
+const passengerRight =
+  passengerLowerCase[0].toUpperCase() + passengerLowerCase.slice(1);
+console.log(passengerRight);
 
-// const restaurant = {
+const email = 'hello@jonas.io';
+const loginEmail = '  Hello@Jonas.io \n ';
+const trimmedEmail = loginEmail.toLowerCase().trim();
+console.log(trimmedEmail);
+
+const gbPrice = '277,90&';
+const usPrice = gbPrice.replace('&', '$').replace(',', '.');
+console.log(usPrice);
+console.log(usPrice.replace('$','X'));
+
+
+const annonc = 'All passengers to door 23. Boarding door 23.';
+console.log(annonc.replaceAll('door', 'll'));
+
+const plane2 = 'Airbus A320neo';
+console.log(plane2.includes('Air'));
+console.log(plane2.includes('boing'));
+console.log(plane2.startsWith('Airb'));
+
+if (plane2.startsWith('Airbus') && plane2.endsWith('neo')) {
+  console.log('part of airbuses');
+}
+
+const checkBaggage = function (items) {
+  const baggage = items.toLowerCase();
+  if (baggage.includes('gun') || baggage.includes('knife')) {
+    console.log('fuck off');
+  } else {
+    console.log('you can fly');
+  }
+};
+
+checkBaggage('i have Knife, and sex');
+checkBaggage('i have knife, and sex');
+checkBaggage('i have Gun, and sex');
+checkBaggage('i have sex');
+
+// // const restaurant = {
 //   name: 'Classico Italiano',
 //   location: 'Via Angelo Tavanti 23, Firenze, Italy',
 //   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
