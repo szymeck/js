@@ -127,7 +127,7 @@ const myScript = function () {
   const areaText = text.value.toLowerCase();
   const areaSplit = areaText.split('\n');
   console.log(areaSplit);
-  areaSplit.indexOf('_');
+  
 
   for (const [i,n] of areaSplit.entries()) {
     const [first,second] = n.trim().split('_');
