@@ -4,6 +4,23 @@
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
+
+
+
+  // console.log(flights.split('+'));
+  for (const flight of flights.split('+')){
+    const [f1,f2,f3,f4]=flight.replaceAll('_',' ').trim().split(';');
+    const [f2s,f3s]=[f2.slice(0,3).toUpperCase(),f3.slice(0,3).toUpperCase()];
+    const outp2 = `${f1.startsWith('Delayed') ? `X ${f1}` : `${f1}`} from ${f2s} to ${f3s} (${f4.replace(':','h')})`.padStart(45);
+    console.log(outp2);
+    
+
+  }
+
+
+
+
+
 // Data needed for first part of the section
 const weekD = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 
