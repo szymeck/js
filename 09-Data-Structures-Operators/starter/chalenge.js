@@ -127,12 +127,17 @@ const myScript = function () {
   const areaText = text.value.toLowerCase();
   const areaSplit = areaText.split('\n');
   console.log(areaSplit);
+<<<<<<< HEAD
   areaSplit.indexOf('_');
+=======
+  
+>>>>>>> c83e8a411bfcfc76dcd8167d000a5a13d70f52ec
 
   for (const [i,n] of areaSplit.entries()) {
     const [first,second] = n.trim().split('_');
     
     const outp = `${first}${second.replace(second[0],second[0].toUpperCase())}`;
+<<<<<<< HEAD
     console.log(`${outp.padEnd(20)}${'✔'.repeat(i+1)}`);
     
 
@@ -163,10 +168,19 @@ const myScript = function () {
     // console.log(n.length);  
     // console.log(n.replace(n.indexOf('_'), n.indexOf('_' + 1)));
     // console.log(n.replace(n.indexOf('_'), n.indexOf('_' + 1)).toUpperCase());
+=======
+    console.log(`${outp.padEnd(20)}${'^'.repeat(i+1)}`);
+    
+>>>>>>> c83e8a411bfcfc76dcd8167d000a5a13d70f52ec
   }
   
 };
 btn.addEventListener('click', myScript);
 
+<<<<<<< HEAD
 // const textSplit = text.split(' ');
 // console.log(textSplit);
+=======
+
+
+>>>>>>> c83e8a411bfcfc76dcd8167d000a5a13d70f52ec
