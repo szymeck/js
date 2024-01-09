@@ -61,6 +61,23 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
+
+const displayMovements = function(movements){
+  containerMovements.innerHTML= '';
+movements.forEach(function(mov,i){
+const type = mov>0 ? "deposit" : "withdrawal";
+
+
+const html = `<div class="movements__row">
+<div class="movements__type movements__type--${type}">${i+1} ${type}</div>
+<div class="movements__value">${mov}</div>
+</div>
+`;
+containerMovements.insertAdjacentHTML('afterbegin',html);
+
+});
+};
+console.log(displayMovements(account1.movements));
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -71,10 +88,34 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
+currencies.forEach(function(value,key,map){
+  console.log(`${key}:${value}--${map}`);
+})
+
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-/////////////////////////////////////////////////
+for ( const [i,movement] of movements.entries()) {
+  if ( movement >0){
+    console.log(`Movement ${i+1}: You deposited ${Math.abs(movement)}`);
+  }
+  else if ( movement <0){
+    console.log(`Movement ${i+1}: You withdraw ${Math.abs(movement)}`);
+  }
+}
+// for each
+movements.forEach(function (movement, index, array){
+  if ( movement >0){
+    console.log(`Movement ${index+1}: You deposited ${Math.abs(movement)}`);
+  }
+  else if ( movement <0){
+    console.log(`Movement ${index+1}: You withdraw ${Math.abs(movement)}`);
+  }
+})
 
+
+
+/////////////////////////////////////////////////
+// slice
 let arr = ['a','b','c','d','e'];
 console.log(arr.slice(2));
 console.log(arr.slice(2,4));
@@ -84,3 +125,28 @@ console.log(arr.slice(1));
 console.log(arr.slice(-1));
 console.log(arr.slice(2,-2));
 console.log(arr.slice(2,-2));
+// console.log([...arr]);
+// // splice
+// // console.log(arr.splice(2));
+// arr.splice(-1);
+// arr.splice(1,2);
+// console.log(arr);
+// // reverse
+// const arr2 = ['j','i','h','g','f'];
+// console.log(arr2.reverse());
+// console.log(arr2);
+// // concat
+// const letters = arr.concat(arr2);
+// console.log(letters);
+// console.log([...arr,...arr2]);
+// // join
+// console.log(letters.join(' ^ '));
+
+// const arr3 =[23,11,64];
+// console.log(arr3[0]);
+// console.log(arr3.at(0));
+// // getting last element
+// console.log(arr3[arr3.length - 1]);
+// console.log(arr3.slice(-1)[0]);
+// console.log(arr3.at(-1));
+// console.log('szymek'.at(-1));
